@@ -12,3 +12,9 @@ block content
   p.code GET #[a(href='http://localhost:9000/api/timestamp/December%2031,%202015') "http://localhost:9000/api/timestamp/December%2031,%202015"]
   p JSON response:
   p.code {"unix":1451516400000,"natural":"December 31, 2015"}
+
+  h2= "/api/info"
+  h4 Example
+  p.code GET #[a(href='/api/info') "/api/info"]
+  p will return JSON
+  p.code {"ipaddress":"::1","language":"en-us","software":"Macintosh; Intel Mac OS X 10_11_2"}
