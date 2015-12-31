@@ -5,10 +5,10 @@ block content
   h2= "/api/timestamp"
   h4 Examples
   h5 using unix timestamp ("1451567966971")
-  p.code GET "/api/timestamp/1451567966971"
+  p.code GET #[a(href='/api/timestamp/1451567966971') "/api/timestamp/1451567966971"]
   p JSON response:
   p.code {"unix":1451567966971,"natural":"December 31, 2015"}
   h5 using string ("December 31, 2015")
-  p.code GET "http://localhost:9000/api/timestamp/December%2031,%202015"
+  p.code GET #[a(href='http://localhost:9000/api/timestamp/December%2031,%202015') "http://localhost:9000/api/timestamp/December%2031,%202015"]
   p JSON response:
   p.code {"unix":1451516400000,"natural":"December 31, 2015"}
