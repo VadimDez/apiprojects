@@ -5,16 +5,24 @@ block content
   h2= "/api/timestamp"
   h4 Examples
   h5 using unix timestamp ("1451567966971")
-  p.code GET #[a(href='/api/timestamp/1451567966971') "/api/timestamp/1451567966971"]
+  span.code GET #[a(href='/api/timestamp/1451567966971') "/api/timestamp/1451567966971"]
   p JSON response:
-  p.code {"unix":1451567966971,"natural":"December 31, 2015"}
+  span.code {"unix":1451567966971,"natural":"December 31, 2015"}
   h5 using string ("December 31, 2015")
-  p.code GET #[a(href='http://localhost:9000/api/timestamp/December%2031,%202015') "http://localhost:9000/api/timestamp/December%2031,%202015"]
+  span.code GET #[a(href='http://localhost:9000/api/timestamp/December%2031,%202015') "http://localhost:9000/api/timestamp/December%2031,%202015"]
   p JSON response:
-  p.code {"unix":1451516400000,"natural":"December 31, 2015"}
+  span.code {"unix":1451516400000,"natural":"December 31, 2015"}
 
   h2= "/api/info"
   h4 Example
-  p.code GET #[a(href='/api/info') "/api/info"]
+  span.code GET #[a(href='/api/info') "/api/info"]
   p will return JSON
-  p.code {"ipaddress":"127.0.0.1","language":"en-us","software":"Macintosh; Intel Mac OS X 10_11_2"}
+  span.code {"ipaddress":"127.0.0.1","language":"en-us","software":"Macintosh; Intel Mac OS X 10_11_2"}
+
+  h2#short= "/api/short"
+  h4 Example
+  h5 using https://google.com
+  span.code GET #[a(href='/api/short/https://google.com') "/api/short/https://google.com"]
+  p will return JSON
+  span.code {"original_url":"https://google.com","short_url":"http://apiprojects.herokuapp.com/short/29"}
+  p By using "short_url" you will be redirected to "original_url"

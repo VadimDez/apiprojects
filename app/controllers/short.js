@@ -51,7 +51,19 @@ function handleError(res) {
     }
   }
 }
-
+router.get('/api/short', (req, res) => {
+  res
+    .status(400)
+    .json({
+      errors: [
+        {
+          status: 400,
+          title: 'Uri is missing'
+        }
+      ]
+    })
+    .end();
+});
 router.get('/api/short/:link*', (req, res) => {
   let uri = req.params.link + req.params['0'];
 
@@ -77,8 +89,8 @@ router.get('/api/short/:link*', (req, res) => {
         uri: uri
       }).then(link => {
         res.json({
-          original_link: uri,
-          short_link: `${process.env.DOMAIN}/short/${link._id}`
+          original_url: uri,
+          short_url: `${process.env.DOMAIN}/short/${link._id}`
         }).end();
       });
     })
