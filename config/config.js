@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'apiprojects'
     },
-    port: 3000,
+    port: 80,
     db: process.env.MONGOLAB_URI || 'mongodb://localhost/apiprojects-production'
   }
 };
