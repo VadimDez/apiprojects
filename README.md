@@ -3,9 +3,9 @@ API projects
 
 ## Available API
 
-* /api/timestamp
-* /api/info
-* /api/short
+* [/api/timestamp](#apitimestamp)
+* [/api/info](#apiinfo)
+* [/api/short](#apishort)
 
 ### /api/timestamp
 
