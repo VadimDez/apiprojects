@@ -2,7 +2,13 @@ extends layout
 
 block content
   h1 Available API
-  h2= "/api/timestamp"
+  ul
+    li #[a(href='#timestamp') /api/timestamp]
+    li #[a(href='#info') /api/info]
+    li #[a(href='#short') /api/short]
+    li #[a(href='#search') /api/search]
+
+  h2#timestamp= "/api/timestamp"
   h4 Examples
   h5 using unix timestamp ("1451567966971")
   pre.prettyprint.lang-js GET #[a(href='/api/timestamp/1451567966971') "/api/timestamp/1451567966971"]
@@ -21,7 +27,7 @@ block content
       "natural": "December 31, 2015"
     }
 
-  h2= "/api/info"
+  h2#info= "/api/info"
   h4 Example
   pre.prettyprint.lang-js GET #[a(href='/api/info') "/api/info"]
   p will return JSON
@@ -44,7 +50,7 @@ block content
     }
   p By using "short_url" you will be redirected to "original_url"
 
-  h2 "/api/search"
+  h2#search= "/api/search"
   p Returns last 20 the most recently submitted search strings, if *term* is passed performs a image search by term
   h4 Examples
   h5 get list of most recent searches

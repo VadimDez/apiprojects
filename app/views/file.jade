@@ -1,0 +1,35 @@
+h4 Get file info as JSON response to a POST form request to #[a(href='/upload') "/upload")
+form#form
+    input(type='file' id='uploadfiles')
+    button(type='submit') Submit
+
+
+script.
+    var uploadfiles = document.querySelector('#uploadfiles');
+    var $form = document.querySelector('#form');
+
+    function uploadFile(file) {
+        var url = '/upload';
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        xhr.open("POST", url, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                if (xhr.responseText) {
+                    alert('Size is: ' + JSON.parse(xhr.responseText).size);
+                }
+            }
+        };
+        fd.append("upload_file", file);
+        xhr.send(fd);
+    }
+
+    // add event on form submit
+    $form.addEventListener('submit', function (evt) {
+        evt.preventDefault();
+
+        for (var i = 0; i < uploadfiles.files.length; i++) {
+            uploadFile(uploadfiles.files[i]);
+        }
+
+    }, false);
