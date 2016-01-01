@@ -1,3 +1,4 @@
+@import url(./../components/google-code-prettify/styles/desert.css);
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
@@ -5,8 +6,5 @@ body {
 a {
   color: #00B7FF; }
 
-.code {
-  background-color: #DEDEDE;
-  padding: 10px; }
-  .code a {
-    color: #906060; }
+h2 {
+  margin-top: 50px; }

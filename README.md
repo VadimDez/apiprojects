@@ -6,6 +6,7 @@ API projects
 * [/api/timestamp](#apitimestamp)
 * [/api/info](#apiinfo)
 * [/api/short](#apishort)
+* [/api/search](#apisearch)
 
 ### /api/timestamp
 
@@ -72,3 +73,34 @@ will return JSON
 ```
 
 By using "short_url" you will be redirected to "original_url"
+
+
+### /api/search
+
+Returns last 20 the most recently submitted search strings, if *term* is passed performs a image search by term
+
+#### Examples
+
+###### get list of most recent searches
+
+```
+GET "/api/search"
+```
+
+will return list of JSONs
+
+```
+[{"url":"http://localhost:9000/api/search/funny%20cats","created_at":"2016-01-01T15:06:35.207Z"},...]
+```
+
+###### Search images by term using limit and offset
+
+```
+GET "/api/search/funny%20cats?limit=10&offset=10"
+```
+
+will return list of JSONs
+
+```
+[{"media_url":"http://4.bp.blogspot.com/_Dei71iQMoec/S8T1RQvIPbI/AAAAAAAAGK0/jDBh_BKubx0/s1600/cat50.jpg","title":"Funny Cats 3","source_url":"http://pictures-laugh.blogspot.com/2010/04/funny-cats-3.html"},...]
+```

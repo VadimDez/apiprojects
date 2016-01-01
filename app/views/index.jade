@@ -5,24 +5,75 @@ block content
   h2= "/api/timestamp"
   h4 Examples
   h5 using unix timestamp ("1451567966971")
-  span.code GET #[a(href='/api/timestamp/1451567966971') "/api/timestamp/1451567966971"]
+  pre.prettyprint.lang-js GET #[a(href='/api/timestamp/1451567966971') "/api/timestamp/1451567966971"]
   p JSON response:
-  span.code {"unix":1451567966971,"natural":"December 31, 2015"}
+  pre.prettyprint.lang-js.
+    {
+      "unix": 1451567966971,
+      "natural": "December 31, 2015"
+    }
   h5 using string ("December 31, 2015")
-  span.code GET #[a(href='http://localhost:9000/api/timestamp/December%2031,%202015') "http://localhost:9000/api/timestamp/December%2031,%202015"]
+  pre.prettyprint.lang-js GET #[a(href='http://localhost:9000/api/timestamp/December%2031,%202015') "http://localhost:9000/api/timestamp/December%2031,%202015"]
   p JSON response:
-  span.code {"unix":1451516400000,"natural":"December 31, 2015"}
+  pre.prettyprint.lang-js.
+    {
+      "unix" :1451516400000,
+      "natural": "December 31, 2015"
+    }
 
   h2= "/api/info"
   h4 Example
-  span.code GET #[a(href='/api/info') "/api/info"]
+  pre.prettyprint.lang-js GET #[a(href='/api/info') "/api/info"]
   p will return JSON
-  span.code {"ipaddress":"127.0.0.1","language":"en-us","software":"Macintosh; Intel Mac OS X 10_11_2"}
+  pre.prettyprint.lang-js.
+    {
+      "ipaddress": "127.0.0.1",
+      "language": "en-us",
+      "software": "Macintosh; Intel Mac OS X 10_11_2"
+    }
 
   h2#short= "/api/short"
   h4 Example
   h5 using https://google.com
-  span.code GET #[a(href='/api/short/https://google.com') "/api/short/https://google.com"]
+  pre.prettyprint.lang-js GET #[a(href='/api/short/https://google.com') "/api/short/https://google.com"]
   p will return JSON
-  span.code {"original_url":"https://google.com","short_url":"http://apiprojects.herokuapp.com/short/29"}
+  pre.prettyprint.lang-js.
+    {
+      "original_url": "https://google.com",
+      "short_url": "http://apiprojects.herokuapp.com/short/29"
+    }
   p By using "short_url" you will be redirected to "original_url"
+
+  h2 "/api/search"
+  p Returns last 20 the most recently submitted search strings, if *term* is passed performs a image search by term
+  h4 Examples
+  h5 get list of most recent searches
+
+  pre.prettyprint.lang-js GET #[a(href='/api/search') "/api/search"]
+
+  p will return list of JSONs
+
+  pre.prettyprint.lang-js.
+    [
+      {
+        "url": "http://localhost:9000/api/search/funny%20cats",
+        "created_at": "2016-01-01T15:06:35.207Z"
+      },
+      ...
+    ]
+
+  h5 Search images by term using limit and offset
+
+  pre.prettyprint.lang-js GET #[a(href='/api/search/funny%20cats?limit=10&offset=10') "/api/search/funny%20cats?limit=10&offset=10"]
+
+  p will return list of JSONs
+
+  pre.prettyprint.lang-js.
+    [
+      {
+        "media_url":"http://4.bp.blogspot.com/_Dei71iQMoec/S8T1RQvIPbI/AAAAAAAAGK0/jDBh_BKubx0/s1600/cat50.jpg",
+        "title":"Funny Cats 3",
+        "source_url":"http://pictures-laugh.blogspot.com/2010/04/funny-cats-3.html"
+      },
+      ...
+    ]
